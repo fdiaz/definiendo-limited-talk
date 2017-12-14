@@ -29,8 +29,13 @@ class ReportDataSource {
 
 extension ReportDataSource: ReportCreator {
   func createReport() throws -> Report {
-    // TODO:
-    return Report()
+    if connectivityListener.isConnected {
+      let json = try apiRequester.createReport()
+      return try ReportParser.fromJSON(json)
+    } else {
+      let sms = try smsHandler.sendSMS()
+      return try ReportParser.fromSMS(sms)
+    }
   }
 }
 
