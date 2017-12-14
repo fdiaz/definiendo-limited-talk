@@ -120,10 +120,6 @@ Al golpear el teléfono → Reportar
 
 ---
 
-![inline fit](img/DI_Componentes-2.png)
-
----
-
 ```swift
 protocol ReportCreator {
   func createReport() throws -> Report
@@ -181,13 +177,13 @@ class BigPanicButtonViewController: UIViewController {
 
 ---
 
-![inline fit](img/DI_Componentes-3.png)
-
-^ Ahora, como implementamos lo mismo en la capa de Business Logic?
+# ¿Si el usuario **no tiene** internet?
 
 ---
 
-# ¿Si el usuario **no tiene** internet?
+![inline fit](img/DI_Componentes-3.png)
+
+^ Ahora, como implementamos lo mismo en la capa de Business Logic?
 
 ---
 
@@ -224,10 +220,18 @@ protocol ConnectivityListener {
 
 ---
 
+# Demo
+
+---
+
 # Recap
 - Movernos independientemente
 - Reducir conflictos
-- No hay necesidad de esperar por integración
+- No hay necesidad de esperar para integrar código.
+
+^ Cada desarrollador puede avanzar sin toparse con otros
+^ Como no hay clases compartidas, solo habrán conflictos si el contrato/protocolo cambia
+^ Se puede desarrollar sin tener que esperar a que el trabajo de otra parte de la app termine.
 
 ---
 
